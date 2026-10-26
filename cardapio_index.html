@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaves Burguer | Cardápio</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="cadastrostyle.css">
+    <link rel="stylesheet" href="cardapio_style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="chaves no bau">
+            <img src="imagem do chaves no bau 2.jpg" alt="imagem do chaves no baú">
+        </div>
+        <div class="brand">
+            <strong>CHAVES <span>BURGUER</span></strong>
+            <p>Monte seu pedido sem complicação 🍔</p>
+        </div>
+
+        <nav class="nav-links">
+            <a href="cadastro.html" class="nav-item">CADASTRO</a>
+            <a href="carrinho.html" class="nav-item" style="border: 1px solid var(--orange); background: #35251b;">🛒 Ver Carrinho (<span id="cartCountBadge">0</span>)</a>
+        </nav>
+
+        <!-- Botão para Chamar o Garçom -->
+        <button id="callWaiterBtn" class="call-waiter-btn" type="button">
+            🔔 Chamar Garçom
+        </button>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <div class="intro">
+            <h1>Escolha seus lanches</h1>
+            <p>Toque no botão <b>+</b> para adicionar os itens ao seu carrinho de compras.</p>
+        </div>
+
+        <section style="max-width: 900px; margin: 0 auto;">
+            <div class="section-head">
+                <h2>🍔 Cardápio</h2>
+                <small>Preços em R$</small>
+            </div>
+
+            <!-- O menu será injetado aqui pelo cardapio.js -->
+            <div id="menu"></div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        Chaves Burguer • Cardápio Digital
+    </footer>
+
+    <!-- Script do Cardápio -->
+    <script src="cardapio.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaves Burguer | Painel ADM</title>
+    
+    <link rel="stylesheet" href="cardapio_style.css">
+    <link rel="stylesheet" href="ADM.css">
+</head>
+<body>
+
+    <header class="adm-header">
+        <div class="brand">
+            <strong>CHAVES <span>BURGUER</span></strong>
+            <p>Painel de Gestão e Controlo de Pedidos 🛠️</p>
+        </div>
+
+        <nav class="adm-nav">
+            <span class="adm-badge">🔒 Área Restrita - Loja</span>
+            <a href="cardapio_index.html" class="nav-item" style="border: 1px solid var(--orange); padding: 6px 12px; border-radius: 20px;">Ver Cardápio (Cliente)</a>
+        </nav>
+    </header>
+
+    <main class="adm-main">
+        <div class="intro">
+            <h1>Painel de Pedidos em Tempo Real</h1>
+            <p>Acompanhe o fluxo de produção da cozinha e controle todos os pedidos recebidos e cancelados.</p>
+        </div>
+
+        <!-- Secção de Alertas de Garçom -->
+        <section class="adm-section">
+            <div class="section-head">
+                <h2>🔔 Chamados de Garçom</h2>
+                <small id="waiterCallsCount">0 chamados pendentes</small>
+            </div>
+            <div id="waiterCallsList" class="waiter-calls-grid">
+                <div class="empty-adm">Nenhum chamado de garçom no momento.</div>
+            </div>
+        </section>
+
+        <!-- Quadro Kanban / Gestão em Cascata (3 Colunas Principais) -->
+        <section class="kanban-board">
+            
+            <!-- Coluna 1: Pendentes -->
+            <div class="kanban-column column-pendente">
+                <div class="column-header">
+                    <h3>🟡 Aguardando Aceite</h3>
+                    <span id="countPendente" class="badge-count">0</span>
+                </div>
+                <div id="listPendente" class="column-body">
+                    <div class="empty-adm">Nenhum pedido novo.</div>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Em Preparo -->
+            <div class="kanban-column column-preparo">
+                <div class="column-header">
+                    <h3>🔵 Em Preparo</h3>
+                    <span id="countPreparo" class="badge-count">0</span>
+                </div>
+                <div id="listPreparo" class="column-body">
+                    <div class="empty-adm">Nenhum pedido em preparo.</div>
+                </div>
+            </div>
+
+            <!-- Coluna 3: Prontos -->
+            <div class="kanban-column column-pronto">
+                <div class="column-header">
+                    <h3>🟢 Prontos / Entregues</h3>
+                    <span id="countPronto" class="badge-count">0</span>
+                </div>
+                <div id="listPronto" class="column-body">
+                    <div class="empty-adm">Nenhum pedido finalizado.</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Secção de Controle e Auditoria de Pedidos Cancelados -->
+        <section class="adm-section" style="margin-top: 35px; border-color: var(--red);">
+            <div class="section-head">
+                <h2 style="color: #ff7777;">🔴 Histórico de Pedidos Cancelados</h2>
+                <div>
+                    <button type="button" class="danger" id="clearHistoryBtn" style="padding: 6px 12px; font-size: 11px; width: auto;">
+                        🗑️ Limpar Histórico de Cancelados
+                    </button>
+                </div>
+            </div>
+            <div id="listCancelado" class="orders-grid">
+                <div class="empty-adm">Nenhum pedido cancelado registrado.</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        Chaves Burguer • Módulo Administrativo Restrito
+    </footer>
+
+    <script src="ADM.js"></script>
+</body>
+</html>

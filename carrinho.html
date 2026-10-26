@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaves Burguer | Seu Carrinho</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="cadastrostyle.css">
+    <link rel="stylesheet" href="cardapio_style.css">
+    <link rel="stylesheet" href="carrinho.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="brand">
+            <strong>CHAVES <span>BURGUER</span></strong>
+            <p>Revisão do seu pedido e Fechamento 🛒</p>
+        </div>
+        <nav class="nav-links">
+            <a href="cardapio_index.html" class="nav-item">⬅️ Voltar ao Cardápio</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main style="max-width: 900px; margin: 30px auto;">
+        <div class="intro">
+            <h1>Seu Carrinho de Compras</h1>
+            <p>Personalize os seus lanches, confira o valor total e escolha abaixo como deseja receber e pagar o seu pedido.</p>
+        </div>
+
+        <section class="cart" style="position: static; max-width: 100%;">
+            <div class="section-head">
+                <h2>🧾 Itens Selecionados</h2>
+                <small id="count">0 itens</small>
+            </div>
+
+            <div class="cart-body">
+                <div id="cartItems">
+                    <div class="empty">
+                        Seu carrinho está vazio.<br>
+                        Volte ao cardápio para adicionar lanches.
+                    </div>
+                </div>
+
+                <div class="total-row">
+                    <span>Total do Pedido</span>
+                    <strong id="total">R$ 0,00</strong>
+                </div>
+
+                <!-- BLOCO DE SELEÇÃO DE MODALIDADE E PAGAMENTO NO CARRINHO -->
+                <div style="background: #181818; border: 2px solid var(--orange); border-radius: 12px; padding: 20px; margin-top: 20px;">
+                    <h3 style="color: var(--orange); font-size: 16px; margin-bottom: 6px;">Como deseja receber e pagar o seu pedido? 🍔</h3>
+                    <p style="color: var(--gray); font-size: 12px; margin-bottom: 15px;">Escolha a opção de consumo abaixo:</p>
+
+                    <div class="modal-options">
+                        <!-- Botão Mesa -->
+                        <button type="button" class="secondary" id="showTableFormBtn">
+                            🪑 Comer no local (Mesa)
+                        </button>
+
+                        <div id="tableForm" class="modal-form-section hide">
+                            <h3>🪑 Dados da Mesa</h3>
+                            <div class="form-group">
+                                <label for="tableNameInput">Seu Nome *</label>
+                                <input type="text" id="tableNameInput" placeholder="Ex: Chaves">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="tableNumberInput">Número da Mesa *</label>
+                                <input type="number" id="tableNumberInput" placeholder="Ex: 05" min="1">
+                            </div>
+                        </div>
+
+                        <div class="divider">OU</div>
+
+                        <!-- Botão Retirada -->
+                        <button type="button" class="secondary" id="showPickupFormBtn">
+                            🛍️ Retirada no Balcão
+                        </button>
+
+                        <div id="pickupForm" class="modal-form-section hide">
+                            <h3>🛍️ Dados para Retirada</h3>
+                            <div class="form-group">
+                                <label for="pickupNameInput">Nome de quem irá retirar *</label>
+                                <input type="text" id="pickupNameInput" placeholder="Ex: Chaves del Ocho">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="pickupPhoneInput">Telefone / WhatsApp *</label>
+                                <input type="tel" id="pickupPhoneInput" placeholder="(31) 99999-9999">
+                            </div>
+                        </div>
+
+                        <div class="divider">OU</div>
+
+                        <!-- Botão Delivery -->
+                        <button type="button" class="secondary" id="showDeliveryFormBtn">
+                            🛵 Entrega a Domicílio (Delivery)
+                        </button>
+
+                        <div id="deliveryForm" class="modal-form-section hide">
+                            <h3>📍 Endereço de Entrega, Contato e Pagamento</h3>
+                            <div class="form-group">
+                                <label for="deliveryNameInput">Nome do Cliente *</label>
+                                <input type="text" id="deliveryNameInput" placeholder="Ex: Chaves del Ocho">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="deliveryPhoneInput">Telefone / WhatsApp para Contato *</label>
+                                <input type="tel" id="deliveryPhoneInput" placeholder="(31) 99999-9999">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="deliveryCepInput">CEP (Opcional - preenche automático)</label>
+                                <input type="text" id="deliveryCepInput" placeholder="Ex: 32000-000" maxlength="9">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="deliveryStreetInput">Rua / Avenida *</label>
+                                <input type="text" id="deliveryStreetInput" placeholder="Ex: Rua das Flores">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="deliveryNumberInput">Nº *</label>
+                                <input type="text" id="deliveryNumberInput" placeholder="Ex: 123">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="deliveryNeighborhoodInput">Bairro *</label>
+                                <input type="text" id="deliveryNeighborhoodInput" placeholder="Ex: Centro">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="deliveryCityInput">Cidade *</label>
+                                <input type="text" id="deliveryCityInput" placeholder="Ex: Contagem">
+                            </div>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <label for="deliveryRefInput">Obs / Ponto de Referência *</label>
+                                <input type="text" id="deliveryRefInput" placeholder="Ex: Próximo à padaria...">
+                            </div>
+
+                            <!-- Forma de Pagamento para Delivery -->
+                            <div class="form-group" style="margin-top: 12px; border-top: 1px dashed var(--orange); padding-top: 10px;">
+                                <label>Forma de Pagamento (na Entrega) *</label>
+                                <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 6px; font-size: 13px; color: var(--white);">
+                                    <label class="extra-option">
+                                        <input type="radio" name="deliveryPayment" value="Dinheiro em Espécie" id="payMoney"> Dinheiro em Espécie
+                                    </label>
+                                    <label class="extra-option">
+                                        <input type="radio" name="deliveryPayment" value="Cartão (Maquininha com Motoboy)" id="payCard"> Cartão (Maquininha com o Motoboy)
+                                    </label>
+                                    <label class="extra-option">
+                                        <input type="radio" name="deliveryPayment" value="Pix (Maquininha / Acertar com Motoboy)" id="payPix"> Pix (Maquininha / Acertar com Motoboy)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Campo de troco dinâmico -->
+                            <div class="form-group hide" id="changeContainer" style="margin-top: 8px;">
+                                <label for="deliveryChangeInput">Precisa de troco para quanto?</label>
+                                <input type="text" id="deliveryChangeInput" placeholder="Ex: Troco para R$ 50,00 (ou 'Não preciso')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões Finais -->
+                <div class="actions" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 20px;">
+                    <button class="primary" id="send">
+                        🚀 Enviar pedido para a cozinha
+                    </button>
+                    <a href="cardapio_index.html" class="secondary" style="text-align: center; text-decoration: none; padding: 14px 12px; display: inline-block; box-sizing: border-box;">
+                        ＋ Adicionar mais itens
+                    </a>
+                    <button class="danger" id="clearCartBtn">
+                        🗑️ Limpar carrinho
+                    </button>
+                </div>
+
+                <div class="toast" id="toast" role="status"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Chaves Burguer • Carrinho de Compras
+    </footer>
+
+    <script src="carrinho.js"></script>
+</body>
+</html>

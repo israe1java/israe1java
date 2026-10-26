@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaves Burguer | Cadastro de Cliente</title>
+    <link rel="stylesheet" href="cardapio_style.css">
+    <link rel="stylesheet" href="cadastrostyle.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="chaves no bau">
+            <img src="imagem do chaves no bau 2.jpg" alt="imagem do chaves no baú">
+        </div>
+        <div class="brand">
+            <strong>CHAVES <span>BURGUER</span></strong>
+            <p>Monte seu pedido sem complicação 🍔</p>
+        </div>
+
+        <!-- Links de navegação entre as páginas -->
+        <nav class="nav-links">
+            <a href="cardapio_index.html" class="nav-item">CARDÁPIO</a>
+        </nav>
+
+        <!-- Botão para Chamar o Garçom -->
+        <button id="callWaiterBtn" class="call-waiter-btn" type="button">
+            🔔 Chamar Garçom
+        </button>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <div class="intro">
+            <h1>Cadastro de Cliente</h1>
+            <p>Preencha seus dados abaixo para agilizar seus próximos pedidos e entregas.</p>
+        </div>
+
+        <section class="form-container">
+            <form id="customerForm" novalidate>
+                
+                <h2>👤 Dados Pessoais</h2>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">Nome *</label>
+                        <input type="text" id="firstName" required placeholder="Ex: Chaves">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Sobrenome *</label>
+                        <input type="text" id="lastName" required placeholder="Ex: del Ocho">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="documentNumber">CPF ou RG *</label>
+                        <input type="text" id="documentNumber" required placeholder="Digite seu CPF ou RG">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthDate">Data de Nascimento *</label>
+                        <input type="date" id="birthDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail <small>(Opcional)</small></label>
+                        <input type="email" id="email" placeholder="seuemail@exemplo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone / WhatsApp <small>(Opcional)</small></label>
+                        <input type="tel" id="phone" placeholder="(31) 99999-9999">
+                    </div>
+                </div>
+
+                <h2>📍 Endereço de Entrega <small>(Opcional nesta etapa)</small></h2>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="street">Rua / Avenida</label>
+                        <input type="text" id="street" placeholder="Ex: Rua da Vila, nº 71">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="number">Número</label>
+                        <input type="text" id="number" placeholder="Ex: 8">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="neighborhood">Bairro</label>
+                        <input type="text" id="neighborhood" placeholder="Ex: Centro">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city" placeholder="Ex: Contagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="complement">Complemento</label>
+                        <input type="text" id="complement" placeholder="Ex: Apto 101, Bairro ao lado do barril">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="primary">Salvar Cadastro<a href="cardapio_index.html" class="nav-item"></a></button>
+                </div>
+
+                <!-- Mensagem de confirmação -->
+                <div class="toast" id="formToast" role="status"></div>
+
+            </form>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        Chaves Burguer • Protótipo inicial de cadastro
+    </footer>
+
+    <script src="cadastro.js"></script>
+</body>
+</html>
